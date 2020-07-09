@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Computers</title>
+</head>
+<body>
+<h3>List Computers</h3>
+
+<table border="1">
+    <tr>
+        <th>id</th>
+        <th>processor</th>
+        <th>ram</th>
+        <th>motherboard</th>
+        <th>graphicscard</th>
+        <th>disk</th>
+        <th>powersupply</th>
+        <th>coolingcpu</th>
+        <th>computercase</th>
+        <th>price ($)</th>
+    </tr>
+    <tr th:each="computer: ${listComputers}">
+        <td th:text="${computer.id}"></td>
+        <td th:text="${computer.processor}"></td>
+        <td th:text="${computer.ram}"></td>
+        <td th:text="${computer.motherboard}"></td>
+        <td th:text="${computer.graphicscard}"></td>
+        <td th:text="${computer.disk}"></td>
+        <td th:text="${computer.powersupply}"></td>
+        <td th:text="${computer.coolingcpu}"></td>
+        <td th:text="${computer.computercase}"></td>
+        <td th:text="${computer.price}"></td>
+    </tr>
+</table>
+</body>
+</html>
