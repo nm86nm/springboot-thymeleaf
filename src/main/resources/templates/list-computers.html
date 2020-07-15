@@ -6,7 +6,6 @@
 </head>
 <body>
 <h3>List Computers</h3>
-
 <table border="1">
     <tr>
         <th>id</th>
@@ -19,6 +18,7 @@
         <th>coolingcpu</th>
         <th>computercase</th>
         <th>price ($)</th>
+        <th>delete</th>
     </tr>
     <tr th:each="computer: ${listComputers}">
         <td th:text="${computer.id}"></td>
@@ -31,7 +31,62 @@
         <td th:text="${computer.coolingcpu}"></td>
         <td th:text="${computer.computercase}"></td>
         <td th:text="${computer.price}"></td>
+        <td>
+            <a th:href="@{/springboot-thymeleaf/delete-computer(id=${computer.id})}" class="btn btn-danger">Delete</a>
+        </td>
     </tr>
 </table>
+
+<h3>Add computer</h3>
+<form th:action="@{add-computer}" th:object="${newComputer}" method="post">
+    <table>
+        <tr>
+            <td>Processor:</td>
+            <td><input type="text" th:field="*{processor}"></td>
+        </tr>
+        <tr>
+            <td>RAM:</td>
+            <td><input type="text" th:field="*{ram}"></td>
+        </tr>
+        <tr>
+            <td>Motherboard</td>
+            <td><input type="text" th:field="*{motherboard}"></td>
+        </tr>
+        <tr>
+            <td>Graphiccard:</td>
+            <td><input type="text" th:field="*{graphicscard}"></td>
+        </tr>
+        <tr>
+            <td>Disk:</td>
+            <td><input type="text" th:field="*{disk}"></td>
+        </tr>
+        <tr>
+            <td>Powersupply:</td>
+            <td><input type="text" th:field="*{powersupply}"></td>
+        </tr>
+        <tr>
+            <td>Coolingcpu:</td>
+            <td><input type="text" th:field="*{coolingcpu}"></td>
+        </tr>
+        <tr>
+            <td>Computercase:</td>
+            <td><input type="text" th:field="*{computercase}"></td>
+        </tr>
+        <tr>
+            <td>Price:</td>
+            <td><input type="text" th:field="*{price}"></td>
+        </tr>
+        <tr>
+            <td><input type="submit" value="Add New Computer"></td>
+        </tr>
+    </table>
+</form>
+
+<!--<h3>Delete computer</h3>
+<form th:action="@{delete-computer}" method="post" th:object="${listComputers}">
+    <input type="hidden" th:field="${listComputers.remove()}"/>
+    <button type="submit" value="Submit" class="btn btn-danger">Delete</button>
+</form>-->
+
 </body>
 </html>
